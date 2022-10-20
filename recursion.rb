@@ -189,3 +189,28 @@ end
 #                         #     [2, 1, 3], [2, 3, 1],
 #                         #     [3, 1, 2], [3, 2, 1]]
 
+
+def greedy(amt, coins)
+    count = 0
+    temp = amt
+    i = 0
+    newarr = []
+    while i < coins.length
+        while temp >= 0
+            temp -= coins[i]
+            count += 1
+        end
+        temp += coins[i]
+        count -= 1
+        count.times do 
+            newarr << coins[i]
+        end
+        count = 0
+        i += 1
+    end
+    newarr
+end
+
+
+
+# p greedy(3921, [25,10,7,1])
